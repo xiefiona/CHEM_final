@@ -27,9 +27,9 @@
             var Hval=6.626e-34;
             var Vval=document.getElementById('v').value;
             if (Eval.trim() == '' && !(Vval.trim() == '')) {
-              alert(Vval * Hval);
+              alert("E: " + Vval * Hval);
             } else if (Vval.trim() == '' && !(Eval.trim() == '')) {
-              alert(Eval / Hval)
+              alert("v: " + Eval / Hval)
             } else {
               alert("You didn't fill in enough info to calculate :(");
             }
@@ -46,24 +46,28 @@
       <form id="form1-2" action = >
         c(Speed of Light): 3 * 10^8 m/s<br>
         Wavelength: <input type="text" id="w"><br>
-        v(Frequency): <input type="text" id="v"><br>
+        v(Frequency): <input type="text" id="fr"><br>
         <script type="text/javascript">
           //creates a button
           var button2 = document.createElement("button");
           button2.innerHTML = "Calculate";
 
           //appends the button
-          var body2 = document.getElementsByTagName("body")[0];
-          body2.appendChild(button2);
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button2);
 
           //add event handler
           button2.addEventListener ("click", function() {
             var Cval=3e8;
             var Wval=document.getElementById('w').value;
-            var Vval=document.getElementById('v').value;
-            if (Wval.trim() == '' && Vval.trim() != '') {
-              alert(CVal / Vval);
-            } else if (Vval.trim() == '' && Wval.trim() != '') {
+            var Frval=document.getElementById('fr').value;
+            alert(Cval);
+            alert(Wval);
+            alert(Frval);
+            //will only go through the if test if all are filled, if 1 is filled, nothing happens
+            if (Wval.trim() == '' && Frval.trim() != '') {
+              alert(CVal / Frval);
+            } else if (Frval.trim() == '' && Wval.trim() != '') {
               alert(CVal / Wval);
             } else {
               alert("You didn't fill in enough info to calculate :(");
@@ -84,7 +88,6 @@
 
       <h2>Kinetics</h2>
 
-      <h3>0 Order Rate Law</h3>
       <h3>1st Order Rate Law</h3>
       <h3>2nd Order Rate Law</h3>
       <h3>Half Life</h3>

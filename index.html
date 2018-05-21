@@ -157,8 +157,8 @@
 
       <h3>1st Order Rate Law</h3>
       <form id="form3-1" action = >
-        ln[A] at time t: <input type="text" id="lnat"><br>
-        ln[A] initial: <input type="text" id="lna0"><br>
+        [A] at time t: <input type="text" id="lnat"><br>
+        [A] initial: <input type="text" id="lna0"><br>
         k: <input type="text" id="k"><br>
         t: <input type="text" id="t"><br>
         <script type="text/javascript">
@@ -198,8 +198,8 @@
 
       <h3>2nd Order Rate Law</h3>
       <form id="form3-2" action = >
-        ln[A] at time t: <input type="text" id="lnat"><br>
-        ln[A] initial: <input type="text" id="lna0"><br>
+        [A] at time t: <input type="text" id="at"><br>
+        [A] initial: <input type="text" id="a0"><br>
         k: <input type="text" id="k"><br>
         t: <input type="text" id="t"><br>
         <script type="text/javascript">
@@ -212,19 +212,19 @@
           body.appendChild(button32);
 
           //add event handler
-          button22.addEventListener ("click", function() {
-            var lnat=document.getElementById("lnat").value;
-            var lna0=document.getElementById("lna0").value;
+          button32.addEventListener ("click", function() {
+            var at=document.getElementById("at").value;
+            var a0=document.getElementById("a0").value;
             var k=document.getElementById("k").value;
             var t=document.getElementById("t").value;
-            if (lnat.trim() == '' && !(lna0.trim() == '' && k.trim() == '' && t.trim() == '')) {
-              alert(-1*(k*t)-Math.log(lna0));
-            } else if (lna0.trim() == '' && !(lnat.trim() == '' && k.trim() == '' && t.trim() == '')) {
-              alert(-1*(k*t)-Math.log(lnat));
-            } else if (k.trim() == '' && !(lna0.trim() == '' && lnat.trim() == '' && t.trim() == '')) {
-              alert((Math.log(lna0)+Math.log(lnat))/-t);
-            } else if (t.trim() == '' && !(lna0.trim() == '' && lnat.trim() == '' && k.trim() == '')) {
-              alert((Math.log(lna0)+Math.log(lnat))/-k);
+            if (at.trim() == '' && !(a0.trim() == '' && k.trim() == '' && t.trim() == '')) {
+              alert(1/((1/a0)+kt));
+            } else if (a0.trim() == '' && !(at.trim() == '' && k.trim() == '' && t.trim() == '')) {
+              alert(1/((1/at)-kt));
+            } else if (k.trim() == '' && !(a0.trim() == '' && at.trim() == '' && t.trim() == '')) {
+              alert(((1/at)-(1/a0))/t);
+            } else if (t.trim() == '' && !(a0.trim() == '' && at.trim() == '' && k.trim() == '')) {
+              alert(((1/at)-(1/a0))/k);
             } else {
               alert("You didn't fill in enough info to calculate :(");
             }

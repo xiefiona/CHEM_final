@@ -61,13 +61,6 @@
             var Cval=3e8;
             var Wval=document.getElementById('w').value;
             var Frval=document.getElementById('fr').value;
-            //alert(Cval);
-            //alert(Wval);
-            //alert(Frval);
-            //will only go through the if test if all are filled, if 1 is filled, nothing happens
-            alert(Wval.trim() == '');
-            alert(Frval.trim() != '');
-            alert("hi");
             if (Wval.trim() == '' && Frval.trim() != '') {
               alert(Cval / Frval);
             } else if (Frval.trim() == '' && Wval.trim() != '') {
@@ -87,12 +80,163 @@
       <h2>Equilibrium</h2>
 
       <h3>pH/POH</h3>
+      <form id="form2-1" action = >
+        pH/pOH: <input type="text" id="ph"><br>
+        [H+]/[OH-]: <input type="text" id="hconc"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button21 = document.createElement("button");
+          button21.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button21);
+
+          //add event handler
+          button21.addEventListener ("click", function() {
+            var phval=document.getElementById("ph").value;
+            var hconcval=document.getElementById("hconc").value;
+            if (phval.trim() == '' && hconcval.trim() != '') {
+              alert(-1*(Math.log10(hconcval)));
+            } else if (hconcval.trim() == '' && phval.trim() != '') {
+              alert(Math.pow(10,-1*phval));
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form1-2").submit();
+          }
+        </script>
+      </form>
+
       <h3>Henderson Hasselbach</h3>
+      <form id="form2-2" action = >
+        pH: <input type="text" id="pH"><br>
+        pKa: <input type="text" id="pka"><br>
+        [A-]: <input type="text" id="a"><br>
+        [HA]: <input type="text" id="ha"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button22 = document.createElement("button");
+          button22.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button22);
+
+          //add event handler
+          button22.addEventListener ("click", function() {
+            var pH=document.getElementById("pH").value;
+            var pKa=document.getElementById("pka").value;
+            var a=document.getElementById("a").value;
+            var ha=document.getElementById("ha").value;
+            if (pH.trim() == '' && !(pKa.trim() == '' && a.trim() == '' && ha.trim() == '')) {
+              alert(Math.log10(a/ha) + pKa);
+            } else if (pKa.trim() == '' && !(pH.trim() == '' && a.trim() == '' && ha.trim() == '')) {
+              alert(pH - Math.log10(a/ha));
+            } else if (a.trim() == '' && !(pH.trim() == '' && pKa.trim() == '' && ha.trim() == '')) {
+              alert(Math.pow(10,pH-pKa)*ha);
+            } else if (ha.trim() == '' && !(pH.trim() == '' && a.trim() == '' && pKa.trim() == '')) {
+              alert(a/Math.pow(10,pH-pKa));
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form2-2").submit();
+          }
+        </script>
+      </form>
 
       <h2>Kinetics</h2>
 
       <h3>1st Order Rate Law</h3>
+      <form id="form3-1" action = >
+        ln[A] at time t: <input type="text" id="lnat"><br>
+        ln[A] initial: <input type="text" id="lna0"><br>
+        k: <input type="text" id="k"><br>
+        t: <input type="text" id="t"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button31 = document.createElement("button");
+          button31.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button31);
+
+          //add event handler
+          button22.addEventListener ("click", function() {
+            var lnat=document.getElementById("lnat").value;
+            var lna0=document.getElementById("lna0").value;
+            var k=document.getElementById("k").value;
+            var t=document.getElementById("t").value;
+            if (lnat.trim() == '' && !(lna0.trim() == '' && k.trim() == '' && t.trim() == '')) {
+              alert(-1*(k*t)-Math.log(lna0));
+            } else if (lna0.trim() == '' && !(lnat.trim() == '' && k.trim() == '' && t.trim() == '')) {
+              alert(-1*(k*t)-Math.log(lnat));
+            } else if (k.trim() == '' && !(lna0.trim() == '' && lnat.trim() == '' && t.trim() == '')) {
+              alert((Math.log(lna0)+Math.log(lnat))/-t);
+            } else if (t.trim() == '' && !(lna0.trim() == '' && lnat.trim() == '' && k.trim() == '')) {
+              alert((Math.log(lna0)+Math.log(lnat))/-k);
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form3-1").submit();
+          }
+        </script>
+      </form>
+
       <h3>2nd Order Rate Law</h3>
+      <form id="form3-2" action = >
+        ln[A] at time t: <input type="text" id="lnat"><br>
+        ln[A] initial: <input type="text" id="lna0"><br>
+        k: <input type="text" id="k"><br>
+        t: <input type="text" id="t"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button32 = document.createElement("button");
+          button32.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button32);
+
+          //add event handler
+          button22.addEventListener ("click", function() {
+            var lnat=document.getElementById("lnat").value;
+            var lna0=document.getElementById("lna0").value;
+            var k=document.getElementById("k").value;
+            var t=document.getElementById("t").value;
+            if (lnat.trim() == '' && !(lna0.trim() == '' && k.trim() == '' && t.trim() == '')) {
+              alert(-1*(k*t)-Math.log(lna0));
+            } else if (lna0.trim() == '' && !(lnat.trim() == '' && k.trim() == '' && t.trim() == '')) {
+              alert(-1*(k*t)-Math.log(lnat));
+            } else if (k.trim() == '' && !(lna0.trim() == '' && lnat.trim() == '' && t.trim() == '')) {
+              alert((Math.log(lna0)+Math.log(lnat))/-t);
+            } else if (t.trim() == '' && !(lna0.trim() == '' && lnat.trim() == '' && k.trim() == '')) {
+              alert((Math.log(lna0)+Math.log(lnat))/-k);
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form3-2").submit();
+          }
+        </script>
+      </form>
+
       <h3>Half Life</h3>
 
       <h2>Gases, Liquids, and Solutions</h2>

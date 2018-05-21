@@ -317,10 +317,51 @@
       <h2>Thermochemistry/Electrochemistry</h2>
 
       <h3>q=mc(change in t)</h3>
+      <form id="form5-1" action = >
+        q(Heat): <input type="text" id="q"><br>
+        m(Mass): <input type="text" id="m"><br>
+        c(Specific Heat): <input type="text" id="c"><br>
+        t(Change in Temperature): <input type="text" id="t"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button4 = document.createElement("button");
+          button4.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button4);
+
+          //add event handler
+          button32.addEventListener ("click", function() {
+            var q=document.getElementById("q").value;
+            var m=document.getElementById("m").value;
+            var c=document.getElementById("c").value;
+            var t=document.getElementById("t").value;
+            if (q.trim() == '' && !(m.trim() == '' && c.trim() == '' && t.trim() == '')) {
+              alert(m*c*t);
+            } else if (m.trim() == '' && !(c.trim() == '' && q.trim() == '' && t.trim() == '')) {
+              alert(q/(c*t));
+            } else if (c.trim() == '' && !(q.trim() == '' && m.trim() == '' && t.trim() == '')) {
+              alert(q/(t*m));
+            } else if (t.trim() == '' && !(q.trim() == '' && m.trim() == '' && c.trim() == '')) {
+              alert(q/(m*c));
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form5-1").submit();
+          }
+        </script>
+      </form>
 
       <h3>Calculate change in G</h3>
       <h4>Change in H - T(Change in S)</h4>
+
       <h4>-RTln(k)</h4>
+
       <h4>-nFE</h4>
 
       <h3>I = q/t</h3>

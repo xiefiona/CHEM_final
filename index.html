@@ -238,6 +238,37 @@
       </form>
 
       <h3>Half Life</h3>
+      <form id="form3-3" action = >
+        k(Rate Constant): <input type="text" id="k"><br>
+        t 1/2(Half Life): <input type="text" id="t12"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button33 = document.createElement("button");
+          button33.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button33);
+
+          //add event handler
+          button33.addEventListener ("click", function() {
+            var k=document.getElementById("k").value;
+            var t12=document.getElementById("t12").value;
+            if (k.trim() == '' && !(t12.trim() == '')) {
+              alert("E: " + Math.log(2)/k);
+            } else if (t12.trim() == '' && !(k.trim() == '')) {
+              alert("v: " + Math.log(2)/k);
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("frm1-1").submit();
+          }
+        </script>
+      </form>
 
       <h2>Gases, Liquids, and Solutions</h2>
 

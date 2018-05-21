@@ -61,14 +61,17 @@
             var Cval=3e8;
             var Wval=document.getElementById('w').value;
             var Frval=document.getElementById('fr').value;
-            alert(Cval);
-            alert(Wval);
-            alert(Frval);
+            //alert(Cval);
+            //alert(Wval);
+            //alert(Frval);
             //will only go through the if test if all are filled, if 1 is filled, nothing happens
+            alert(Wval.trim() == '');
+            alert(Frval.trim() != '');
+            alert("hi");
             if (Wval.trim() == '' && Frval.trim() != '') {
-              alert(CVal / Frval);
+              alert(Cval / Frval);
             } else if (Frval.trim() == '' && Wval.trim() != '') {
-              alert(CVal / Wval);
+              alert(Cval / Wval);
             } else {
               alert("You didn't fill in enough info to calculate :(");
             }

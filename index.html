@@ -3,5 +3,42 @@
     <head>
     </head>
     <body>
+      <h1>Chemistry Formulas</h1>
+
+      <h2>Atomic Structure</h2>
+      <h3>E = h * v</h3>
+      <form id="form1" action = >
+        E: <input type="text" id="E"><br>
+        h: 6.626 * 10^-34 J s<br>
+        v: <input type="text" id="v"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button = document.createElement("button");
+          button.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button);
+
+          //add event handler
+          button.addEventListener ("click", function() {
+            var Eval=document.getElementById('E').value;
+            var Hval=6.626e-34;
+            var Vval=document.getElementById('v').value;
+            if (Eval.trim() == '' && !(Vval.trim() == '')) {
+              alert(Vval * Hval);
+            } else if (Vval.trim() == '' && !(Eval.trim() == '')) {
+              alert(Eval / Hval)
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("frm1").submit();
+          }
+        </script>
+      </form>
     </body>
 <html>

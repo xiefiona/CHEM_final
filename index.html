@@ -6,11 +6,12 @@
       <h1>Chemistry Formulas</h1>
 
       <h2>Atomic Structure</h2>
+
       <h3>E = h * v</h3>
-      <form id="form1" action = >
-        E: <input type="text" id="E"><br>
-        h: 6.626 * 10^-34 J s<br>
-        v: <input type="text" id="v"><br>
+      <form id="form1-1" action = >
+        E(Energy): <input type="text" id="E"><br>
+        h(Planck's Constant): 6.626 * 10^-34 J s<br>
+        v(Frequency): <input type="text" id="v"><br>
         <script type="text/javascript">
           //creates a button
           var button = document.createElement("button");
@@ -36,9 +37,72 @@
         </script>
         <script>
           function myFunction() {
-            document.getElementById("frm1").submit();
+            document.getElementById("frm1-1").submit();
           }
         </script>
       </form>
+
+      <h3>c = (wavelength) * v</h3>
+      <form id="form1-2" action = >
+        c(Speed of Light): 3 * 10^8 m/s<br>
+        Wavelength: <input type="text" id="w"><br>
+        v(Frequency): <input type="text" id="v"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button2 = document.createElement("button");
+          button2.innerHTML = "Calculate";
+
+          //appends the button
+          var body2 = document.getElementsByTagName("body")[0];
+          body2.appendChild(button2);
+
+          //add event handler
+          button2.addEventListener ("click", function() {
+            var Cval=3e8;
+            var Wval=document.getElementById('w').value;
+            var Vval=document.getElementById('v').value;
+            if (Wval.trim() == '' && Vval.trim() != '') {
+              alert(CVal / Vval);
+            } else if (Vval.trim() == '' && Wval.trim() != '') {
+              alert(CVal / Wval);
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form1-2").submit();
+          }
+        </script>
+      </form>
+
+      <h2>Equilibrium</h2>
+
+      <h3>pH/POH</h3>
+      <h3>Henderson Hasselbach</h3>
+
+      <h2>Kinetics</h2>
+
+      <h3>0 Order Rate Law</h3>
+      <h3>1st Order Rate Law</h3>
+      <h3>2nd Order Rate Law</h3>
+      <h3>Half Life</h3>
+
+      <h2>Gases, Liquids, and Solutions</h2>
+
+      <h3>PV=nRT</h3>
+
+      <h2>Thermochemistry/Electrochemistry</h2>
+
+      <h3>q=mc(change in t)</h3>
+
+      <h3>Calculate change in G</h3>
+      <h4>Change in H - T(Change in S)</h4>
+      <h4>-RTln(k)</h4>
+      <h4>-nFE</h4>
+
+      <h3>I = q/t</h3>
+
     </body>
 <html>

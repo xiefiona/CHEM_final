@@ -265,7 +265,7 @@
         </script>
         <script>
           function myFunction() {
-            document.getElementById("frm1-1").submit();
+            document.getElementById("frm3-3").submit();
           }
         </script>
       </form>
@@ -273,6 +273,46 @@
       <h2>Gases, Liquids, and Solutions</h2>
 
       <h3>PV=nRT</h3>
+      <form id="form4" action = >
+        P(Pressure): <input type="text" id="p"><br>
+        V(Volume): <input type="text" id="v"><br>
+        n(Number of Moles): <input type="text" id="n"><br>
+        T(Temperature): <input type="text" id="t"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button4 = document.createElement("button");
+          button4.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button4);
+
+          //add event handler
+          button32.addEventListener ("click", function() {
+            var p=document.getElementById("p").value;
+            var v=document.getElementById("v").value;
+            var n=document.getElementById("n").value;
+            var t=document.getElementById("t").value;
+            if (p.trim() == '' && !(v.trim() == '' && n.trim() == '' && t.trim() == '')) {
+              alert((n*.0821*t)/v);
+            } else if (v.trim() == '' && !(n.trim() == '' && p.trim() == '' && t.trim() == '')) {
+              alert((n*.0821*t)/p);
+            } else if (n.trim() == '' && !(p.trim() == '' && v.trim() == '' && t.trim() == '')) {
+              alert((p*v)/(.0821*t));
+            } else if (t.trim() == '' && !(p.trim() == '' && v.trim() == '' && n.trim() == '')) {
+              alert((p*v)/(.0821*n));
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form4").submit();
+          }
+        </script>
+      </form>
+
 
       <h2>Thermochemistry/Electrochemistry</h2>
 

@@ -31,7 +31,7 @@
             } else if (Vval.trim() == '' && !(Eval.trim() == '')) {
               alert("v: " + Eval / Hval)
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed :(");
             }
           });
         </script>
@@ -62,11 +62,11 @@
             var Wval=document.getElementById('w').value;
             var Frval=document.getElementById('fr').value;
             if (Wval.trim() == '' && Frval.trim() != '') {
-              alert(Cval / Frval);
+              alert("Wavelength: " + Cval / Frval);
             } else if (Frval.trim() == '' && Wval.trim() != '') {
-              alert(Cval / Wval);
+              alert("Frequency: " + Cval / Wval);
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed -_-");
             }
           });
         </script>
@@ -97,11 +97,11 @@
             var phval=document.getElementById("ph").value;
             var hconcval=document.getElementById("hconc").value;
             if (phval.trim() == '' && hconcval.trim() != '') {
-              alert(-1*(Math.log10(hconcval)));
+              alert("pH/pOH: " + -1*(Math.log10(hconcval)));
             } else if (hconcval.trim() == '' && phval.trim() != '') {
-              alert(Math.pow(10,-1*phval));
+              alert("[H+]/[OH-]: " + Math.pow(10,-1*phval));
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed >_>");
             }
           });
         </script>
@@ -112,7 +112,7 @@
         </script>
       </form>
 
-      <h3>Henderson Hasselbach</h3>
+      <h3>Henderson Hasselbalch</h3>
       <form id="form2-2" action = >
         pH: <input type="text" id="pH"><br>
         pKa: <input type="text" id="pka"><br>
@@ -134,15 +134,16 @@
             var a=document.getElementById("a").value;
             var ha=document.getElementById("ha").value;
             if (pH.trim() == '' && !(pKa.trim() == '' && a.trim() == '' && ha.trim() == '')) {
-              alert(Math.log10(a/ha) + pKa);
+              alert("pH: " + Math.log10(a/ha) + pKa);
             } else if (pKa.trim() == '' && !(pH.trim() == '' && a.trim() == '' && ha.trim() == '')) {
-              alert(pH - Math.log10(a/ha));
+              alert("pKa: " + pH - Math.log10(a/ha));
             } else if (a.trim() == '' && !(pH.trim() == '' && pKa.trim() == '' && ha.trim() == '')) {
-              alert(Math.pow(10,pH-pKa)*ha);
+              alert("[A-]: " + Math.pow(10,pH-pKa)*ha);
             } else if (ha.trim() == '' && !(pH.trim() == '' && a.trim() == '' && pKa.trim() == '')) {
-              alert(a/Math.pow(10,pH-pKa));
+              alert("[HA]: " + a/Math.pow(10,pH-pKa));
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed o_o");
+              alert("lol");
             }
           });
         </script>
@@ -171,21 +172,21 @@
           body.appendChild(button31);
 
           //add event handler
-          button22.addEventListener ("click", function() {
+          button31.addEventListener ("click", function() {
             var lnat=document.getElementById("lnat").value;
             var lna0=document.getElementById("lna0").value;
             var k=document.getElementById("k").value;
             var t=document.getElementById("t").value;
             if (lnat.trim() == '' && !(lna0.trim() == '' && k.trim() == '' && t.trim() == '')) {
-              alert(-1*(k*t)-Math.log(lna0));
+              alert("[A] at time t: " + -1*(k*t)-Math.log(lna0));
             } else if (lna0.trim() == '' && !(lnat.trim() == '' && k.trim() == '' && t.trim() == '')) {
-              alert(-1*(k*t)-Math.log(lnat));
+              alert("[A] initial: " + -1*(k*t)-Math.log(lnat));
             } else if (k.trim() == '' && !(lna0.trim() == '' && lnat.trim() == '' && t.trim() == '')) {
-              alert((Math.log(lna0)+Math.log(lnat))/-t);
+              alert("k: " + (Math.log(lna0)+Math.log(lnat))/-t);
             } else if (t.trim() == '' && !(lna0.trim() == '' && lnat.trim() == '' && k.trim() == '')) {
-              alert((Math.log(lna0)+Math.log(lnat))/-k);
+              alert("t: " + (Math.log(lna0)+Math.log(lnat))/-k);
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed...");
             }
           });
         </script>
@@ -200,8 +201,8 @@
       <form id="form3-2" action = >
         [A] at time t: <input type="text" id="at"><br>
         [A] initial: <input type="text" id="a0"><br>
-        k: <input type="text" id="k"><br>
-        t: <input type="text" id="t"><br>
+        k: <input type="text" id="kval"><br>
+        t: <input type="text" id="tval"><br>
         <script type="text/javascript">
           //creates a button
           var button32 = document.createElement("button");
@@ -213,20 +214,21 @@
 
           //add event handler
           button32.addEventListener ("click", function() {
+            alert("hi");
             var at=document.getElementById("at").value;
             var a0=document.getElementById("a0").value;
-            var k=document.getElementById("k").value;
-            var t=document.getElementById("t").value;
+            var k=document.getElementById("kval").value;
+            var t=document.getElementById("tval").value;
             if (at.trim() == '' && !(a0.trim() == '' && k.trim() == '' && t.trim() == '')) {
-              alert(1/((1/a0)+kt));
+              alert(1/((1/a0)+(k*t)));
             } else if (a0.trim() == '' && !(at.trim() == '' && k.trim() == '' && t.trim() == '')) {
-              alert(1/((1/at)-kt));
+              alert(1/((1/at)-(k*t)));
             } else if (k.trim() == '' && !(a0.trim() == '' && at.trim() == '' && t.trim() == '')) {
               alert(((1/at)-(1/a0))/t);
             } else if (t.trim() == '' && !(a0.trim() == '' && at.trim() == '' && k.trim() == '')) {
               alert(((1/at)-(1/a0))/k);
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed ): ");
             }
           });
         </script>
@@ -239,7 +241,7 @@
 
       <h3>Half Life</h3>
       <form id="form3-3" action = >
-        k(Rate Constant): <input type="text" id="k"><br>
+        k(Rate Constant): <input type="text" id="K"><br>
         t 1/2(Half Life): <input type="text" id="t12"><br>
         <script type="text/javascript">
           //creates a button
@@ -252,14 +254,16 @@
 
           //add event handler
           button33.addEventListener ("click", function() {
-            var k=document.getElementById("k").value;
+            var k=document.getElementById("K").value;
             var t12=document.getElementById("t12").value;
+            alert(k.trim()=='');
+            alert(t12.trim()=='');
             if (k.trim() == '' && !(t12.trim() == '')) {
-              alert("E: " + Math.log(2)/k);
+              alert("k: " + (Math.log(2))/t12);
             } else if (t12.trim() == '' && !(k.trim() == '')) {
-              alert("v: " + Math.log(2)/k);
+              alert("Half Life: " + Math.log(2)/k);
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed v(- o -)v ");
             }
           });
         </script>
@@ -275,9 +279,9 @@
       <h3>PV=nRT</h3>
       <form id="form4" action = >
         P(Pressure): <input type="text" id="p"><br>
-        V(Volume): <input type="text" id="v"><br>
+        V(Volume): <input type="text" id="vvalue"><br>
         n(Number of Moles): <input type="text" id="n"><br>
-        T(Temperature): <input type="text" id="t"><br>
+        T(Temperature): <input type="text" id="tvalue"><br>
         <script type="text/javascript">
           //creates a button
           var button4 = document.createElement("button");
@@ -288,21 +292,25 @@
           body.appendChild(button4);
 
           //add event handler
-          button32.addEventListener ("click", function() {
+          button4.addEventListener ("click", function() {
             var p=document.getElementById("p").value;
-            var v=document.getElementById("v").value;
+            var v=document.getElementById("vvalue").value;
             var n=document.getElementById("n").value;
-            var t=document.getElementById("t").value;
+            var t=document.getElementById("tvalue").value;
+            alert(p);
+            alert(v);
+            alert(n);
+            alert(t);
             if (p.trim() == '' && !(v.trim() == '' && n.trim() == '' && t.trim() == '')) {
-              alert((n*.0821*t)/v);
+              alert("Pressure: " + (n*.0821*t)/v);
             } else if (v.trim() == '' && !(n.trim() == '' && p.trim() == '' && t.trim() == '')) {
-              alert((n*.0821*t)/p);
+              alert("Volume: " + (n*.0821*t)/p);
             } else if (n.trim() == '' && !(p.trim() == '' && v.trim() == '' && t.trim() == '')) {
-              alert((p*v)/(.0821*t));
+              alert("Number of Moles: " + (p*v)/(.0821*t));
             } else if (t.trim() == '' && !(p.trim() == '' && v.trim() == '' && n.trim() == '')) {
-              alert((p*v)/(.0821*n));
+              alert("Temperature: " + (p*v)/(.0821*n));
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed o_0 ");
             }
           });
         </script>
@@ -321,7 +329,7 @@
         q(Heat): <input type="text" id="q"><br>
         m(Mass): <input type="text" id="m"><br>
         c(Specific Heat): <input type="text" id="c"><br>
-        t(Change in Temperature): <input type="text" id="t"><br>
+        t(Change in Temperature): <input type="text" id="tv"><br>
         <script type="text/javascript">
           //creates a button
           var button4 = document.createElement("button");
@@ -332,21 +340,21 @@
           body.appendChild(button4);
 
           //add event handler
-          button32.addEventListener ("click", function() {
+          button4.addEventListener ("click", function() {
             var q=document.getElementById("q").value;
             var m=document.getElementById("m").value;
             var c=document.getElementById("c").value;
-            var t=document.getElementById("t").value;
+            var t=document.getElementById("tv").value;
             if (q.trim() == '' && !(m.trim() == '' && c.trim() == '' && t.trim() == '')) {
-              alert(m*c*t);
+              alert("q: " + m*c*t);
             } else if (m.trim() == '' && !(c.trim() == '' && q.trim() == '' && t.trim() == '')) {
-              alert(q/(c*t));
+              alert("m: " + q/(c*t));
             } else if (c.trim() == '' && !(q.trim() == '' && m.trim() == '' && t.trim() == '')) {
-              alert(q/(t*m));
+              alert("c: " + (q/(t*m)));
             } else if (t.trim() == '' && !(q.trim() == '' && m.trim() == '' && c.trim() == '')) {
-              alert(q/(m*c));
+              alert("Change in Temperature: " + q/(m*c));
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed (^ o ^) ");
             }
           });
         </script>
@@ -363,7 +371,7 @@
         Delta G(Standard Free Energy): <input type="text" id="g"><br>
         Delta H(Standard Enthalpy): <input type="text" id="h"><br>
         Delta S(Standard Entrophy): <input type="text" id="s"><br>
-        t(Temperature): <input type="text" id="t"><br>
+        t(Temperature): <input type="text" id="tnum"><br>
         <script type="text/javascript">
           //creates a button
           var button52 = document.createElement("button");
@@ -378,17 +386,18 @@
             var g=document.getElementById("g").value;
             var h=document.getElementById("h").value;
             var s=document.getElementById("s").value;
-            var t=document.getElementById("t").value;
+            var t=document.getElementById("tnum").value;
             if (g.trim() == '' && !(h.trim() == '' && s.trim() == '' && t.trim() == '')) {
-              alert(h-(t*s));
+              var val = h-(t*s);
+              alert("g: " + val);
             } else if (h.trim() == '' && !(s.trim() == '' && g.trim() == '' && t.trim() == '')) {
-              alert(g+(t*s));
+              alert("h: " + g+(t*s));
             } else if (s.trim() == '' && !(g.trim() == '' && h.trim() == '' && t.trim() == '')) {
-              alert((h-g)/t);
+              alert("s: " + (h-g)/t);
             } else if (t.trim() == '' && !(g.trim() == '' && h.trim() == '' && s.trim() == '')) {
-              alert((h-g)/s);
+              alert("t: " + (h-g)/s);
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed (X . X)");
             }
           });
         </script>
@@ -401,9 +410,9 @@
 
       <h4>-RTln(k)</h4>
       <form id="form5-3" action = >
-        Delta G(Standard Free Energy): <input type="text" id="g"><br>
-        K: <input type="text" id="k"><br>
-        t(Change in Temperature): <input type="text" id="t"><br>
+        Delta G(Standard Free Energy): <input type="text" id="gnum"><br>
+        K: <input type="text" id="knum"><br>
+        t(Change in Temperature): <input type="text" id="tn"><br>
         <script type="text/javascript">
           //creates a button
           var button53 = document.createElement("button");
@@ -414,19 +423,19 @@
           body.appendChild(button53);
 
           //add event handler
-          button32.addEventListener ("click", function() {
-            var g=document.getElementById("g").value;
-            var k=document.getElementById("k").value;
-            var t=document.getElementById("t").value;
+          button53.addEventListener ("click", function() {
+            var g=document.getElementById("gnum").value;
+            var k=document.getElementById("knum").value;
+            var t=document.getElementById("tn").value;
             var r=8.314;
             if (g.trim() == '' && !(k.trim() == '' && t.trim() == '')) {
-              alert(-r*t*Math.log(k));
+              alert("g: " + -r*t*Math.log(k));
             } else if (k.trim() == '' && !(t.trim() == '' && g.trim() == '')) {
-              alert(-g/(r*Math.log(k)));
+              alert("k: " + Math.pow(10,g/(-r*t)));
             } else if (t.trim() == '' && !(g.trim() == '' && k.trim() == '')) {
-              alert(Math.pow(10,g/(-r*t)));
+              alert("t: " + -g/(r*Math.log(k)));
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed (= . =)");
             }
           });
         </script>
@@ -439,8 +448,8 @@
 
       <h4>-nFE</h4>
       <form id="form5-4" action = >
-        Delta G(Standard Free Energy): <input type="text" id="g"><br>
-        n(number of moles: <input type="text" id="n"><br>
+        Delta G(Standard Free Energy): <input type="text" id="gval"><br>
+        n(number of moles: <input type="text" id="nval"><br>
         E(Standard Reduction Potential): <input type="text" id="e"><br>
         <script type="text/javascript">
           //creates a button
@@ -452,19 +461,19 @@
           body.appendChild(button54);
 
           //add event handler
-          button32.addEventListener ("click", function() {
-            var g=document.getElementById("g").value;
-            var n=document.getElementById("n").value;
+          button54.addEventListener ("click", function() {
+            var g=document.getElementById("gval").value;
+            var n=document.getElementById("nval").value;
             var e=document.getElementById("e").value;
             var f=96485;
             if (g.trim() == '' && !(n.trim() == '' && e.trim() == '')) {
-              alert(-n*f*e);
+              alert("Delta G: " + -n*f*e);
             } else if (n.trim() == '' && !(e.trim() == '' && g.trim() == '')) {
-              alert(-g/(e*f));
+              alert("n: " + -g/(e*f));
             } else if (e.trim() == '' && !(g.trim() == '' && n.trim() == '')) {
-              alert(-g/(e*n));
+              alert("E: " + -g/(f*n));
             } else {
-              alert("You didn't fill in enough info to calculate :(");
+              alert("You failed (._.)");
             }
           });
         </script>
@@ -478,8 +487,8 @@
       <h3>I = q/t</h3>
       <form id="form5-5" action = >
         I(current): <input type="text" id="i"><br>
-        q(charge): <input type="text" id="q"><br>
-        t(time): <input type="text" id="t"><br>
+        q(charge): <input type="text" id="qval"><br>
+        t(time): <input type="text" id="T"><br>
         <script type="text/javascript">
           //creates a button
           var button55 = document.createElement("button");
@@ -492,14 +501,14 @@
           //add event handler
           button55.addEventListener ("click", function() {
             var i=document.getElementById("i").value;
-            var q=document.getElementById("q").value;
-            var t=document.getElementById("t").value;
+            var q=document.getElementById("qval").value;
+            var t=document.getElementById("T").value;
             if (i.trim() == '' && !(q.trim() == '' && t.trim() == '')) {
-              alert(q/t);
+              alert("I: " + (q/t));
             } else if (q.trim() == '' && !(t.trim() == '' && i.trim() == '')) {
-              alert(i*t);
+              alert("q: " + i*t);
             } else if (t.trim() == '' && !(q.trim() == '' && i.trim() == '')) {
-              alert(q/i);
+              alert("t: " + q/i);
             } else {
               alert("You didn't fill in enough info to calculate :(");
             }

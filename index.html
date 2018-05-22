@@ -438,6 +438,42 @@
       </form>
 
       <h4>-nFE</h4>
+      <form id="form5-4" action = >
+        Delta G(Standard Free Energy): <input type="text" id="g"><br>
+        n(number of moles: <input type="text" id="n"><br>
+        E(Standard Reduction Potential): <input type="text" id="e"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button54 = document.createElement("button");
+          button54.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button54);
+
+          //add event handler
+          button32.addEventListener ("click", function() {
+            var g=document.getElementById("g").value;
+            var n=document.getElementById("n").value;
+            var e=document.getElementById("e").value;
+            var f=96485;
+            if (g.trim() == '' && !(n.trim() == '' && e.trim() == '')) {
+              alert(-n*f*e);
+            } else if (n.trim() == '' && !(e.trim() == '' && g.trim() == '')) {
+              alert(-g/(e*f));
+            } else if (e.trim() == '' && !(g.trim() == '' && n.trim() == '')) {
+              alert(-g/(e*n));
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form5-4").submit();
+          }
+        </script>
+      </form>
 
       <h3>I = q/t</h3>
 

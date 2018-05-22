@@ -400,6 +400,42 @@
       </form>
 
       <h4>-RTln(k)</h4>
+      <form id="form5-3" action = >
+        Delta G(Standard Free Energy): <input type="text" id="g"><br>
+        K: <input type="text" id="k"><br>
+        t(Change in Temperature): <input type="text" id="t"><br>
+        <script type="text/javascript">
+          //creates a button
+          var button53 = document.createElement("button");
+          button53.innerHTML = "Calculate";
+
+          //appends the button
+          var body = document.getElementsByTagName("body")[0];
+          body.appendChild(button53);
+
+          //add event handler
+          button32.addEventListener ("click", function() {
+            var g=document.getElementById("g").value;
+            var k=document.getElementById("k").value;
+            var t=document.getElementById("t").value;
+            var r=8.314;
+            if (g.trim() == '' && !(k.trim() == '' && t.trim() == '')) {
+              alert(-r*t*Math.log(k));
+            } else if (k.trim() == '' && !(t.trim() == '' && g.trim() == '')) {
+              alert(-g/(r*Math.log(k)));
+            } else if (t.trim() == '' && !(g.trim() == '' && k.trim() == '')) {
+              alert(Math.pow(10,g/(-r*t)));
+            } else {
+              alert("You didn't fill in enough info to calculate :(");
+            }
+          });
+        </script>
+        <script>
+          function myFunction() {
+            document.getElementById("form5-3").submit();
+          }
+        </script>
+      </form>
 
       <h4>-nFE</h4>
 

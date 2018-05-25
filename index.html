@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
     </head>
     <body>
       <h1>Chemistry Formulas</h1>
@@ -263,8 +263,6 @@
           button33.addEventListener ("click", function() {
             var k=document.getElementById("K").value;
             var t12=document.getElementById("t12").value;
-            alert(k.trim()=='');
-            alert(t12.trim()=='');
             if (k.trim() == '' && !(t12.trim() == '')) {
               alert("k: " + (Math.log(2))/t12);
             } else if (t12.trim() == '' && !(k.trim() == '')) {
@@ -304,10 +302,6 @@
             var v=document.getElementById("vvalue").value;
             var n=document.getElementById("n").value;
             var t=document.getElementById("tvalue").value;
-            alert(p);
-            alert(v);
-            alert(n);
-            alert(t);
             if (p.trim() == '' && !(v.trim() == '' && n.trim() == '' && t.trim() == '')) {
               alert("Pressure: " + (n*.0821*t)/v);
             } else if (v.trim() == '' && !(n.trim() == '' && p.trim() == '' && t.trim() == '')) {
